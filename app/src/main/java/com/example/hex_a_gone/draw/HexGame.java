@@ -52,6 +52,8 @@ public class HexGame implements GLSurfaceView.Renderer {
                 }
             }
         };
+        effects = new EffectManager();
+        newGame.run();
     }
 
     private Matrix2 viewMatrix = new Matrix2();
@@ -74,6 +76,7 @@ public class HexGame implements GLSurfaceView.Renderer {
     private ShaderProgram program;
     private TextureHandle texture;
 
+
     private int uniformMatrixHandle;
 
     @Override
@@ -89,11 +92,8 @@ public class HexGame implements GLSurfaceView.Renderer {
         uniformMatrixHandle = program.getUniformID("u_Matrix");
 
         batch = new HexBatch(this.context);
-        effects = new EffectManager();
-
-        newGame.run();
-
         dragon = new Dragon(-3f,4f);
+        lastTime = System.nanoTime();
     }
 
     public void setSize(int x, int y){
@@ -149,9 +149,9 @@ public class HexGame implements GLSurfaceView.Renderer {
         dragon.drawDragon(batch);
 
         batch.drawScore(newGame.x(), -newGame.y(), currentBoard().score,5);
-        //if(currentBoard().checkEndgame())
-            batch.drawEndGame();
 
+        if(currentBoard().checkEndgame())
+            batch.drawEndGame();
 
         if(effects.active()) {
             effects.draw(batch);

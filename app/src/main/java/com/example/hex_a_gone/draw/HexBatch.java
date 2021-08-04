@@ -105,7 +105,7 @@ public class HexBatch extends QuadBatch {
     }
 
     private final void drawShadow(float[] region, float x, float y, float width,  float multi, int color){
-        draw(region, x - .06f * multi, y - .06f * multi, width, colors.getShadow(color));
+        draw(region, x - .06f * multi, y - .05f * multi, width, colors.getShadow(color));
         draw(region, x, y, width, colors.getColor(color));
     }
 
@@ -162,7 +162,22 @@ public class HexBatch extends QuadBatch {
         float y = button.y();
 
         drawHex(x,y, 1, clr);
-        drawShadow(region, x, y, .9f, .9f, clr);
+
+        if(x > 0){
+            float rad = .225f;
+            float multi = .2f;
+            drawShadow(hexRegion, x, y + rad, multi, multi, clr);
+            drawShadow(hexRegion, x + rad * RATIO, y - rad * .5f, multi, multi, clr);
+            drawShadow(hexRegion, x - rad * RATIO, y - rad * .5f, multi, multi, clr);
+            drawShadow(hexRegion, x, y - rad, multi, multi, clr);
+            drawShadow(hexRegion, x + rad * RATIO, y + rad * .5f, multi, multi, clr);
+            drawShadow(hexRegion, x - rad * RATIO, y + rad * .5f, multi, multi, clr);
+            //drawNumber(1, x ,y+ rad, multi);
+            //drawNumber(1, x +rad * RATIO ,y - rad * .5f , multi);
+            //drawNumber(2, x - rad * RATIO,y - rad * .5f, multi);
+        } else {
+            drawShadow(region, x, y, .9f, .9f, clr);
+        }
     }
 
     public void drawIndicator(HexXYZ direction, int clr) {
