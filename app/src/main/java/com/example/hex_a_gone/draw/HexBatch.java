@@ -8,7 +8,7 @@ import com.example.hex_a_gone.model.HexXYZ;
 import com.example.hex_a_gone.model.PointXY;
 
 public class HexBatch extends QuadBatch {
-    private final ColorSource colors = new ColorSource();
+    private final ColorSource colors ;
 
 
     final float[] hexRegion;
@@ -19,7 +19,7 @@ public class HexBatch extends QuadBatch {
     public final float[] undo;
     public HexBatch(Context context){
         super(500, new int[]{2, 2, 4});
-
+        colors = new ColorSource(context);
         AtlasReader reader = new AtlasReader(context, R.raw.images);
 
         hexRegion = reader.CreateCoordinates("hex", .5f, .5f);

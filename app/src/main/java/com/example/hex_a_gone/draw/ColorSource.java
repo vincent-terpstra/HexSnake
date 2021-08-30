@@ -1,5 +1,8 @@
 package com.example.hex_a_gone.draw;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.opengl.GLES20;
 
 public class ColorSource {
@@ -8,9 +11,15 @@ public class ColorSource {
     final float[][] clrs;
     final float[][] shadows;
 
+    int[] clr1 = {38, 42, 44, 235, 234, 240};
+    boolean toggle = true;
+
+    private final Context context;
+
     float[] background;
 
-    public ColorSource(){
+    public ColorSource(Context ctx){
+        this.context = ctx;
         source = this;
         clrs = new float[][]{
          //       {  38,  42,  44 },
@@ -47,15 +56,33 @@ public class ColorSource {
             shadows[idx++] = new float[]{c[0] * .5f, c[1] * .6f, c[2] * .5f};
         }
 
-        background = new float[] {38f /255f,42f /255f, 44f /255f};
+        toggle = true;
+        try{
+            SharedPreferences sharedPreferences = context.getSharedPreferences(
+                    "hexSliderSharedPreferences", Context.MODE_PRIVATE);
+
+            toggle = !sharedPreferences.getBoolean("colorToggle", true);
+        } catch (Exception ex){
+        }
+
+
         switchColor();
     }
 
-    int[] clr1 = {38, 42, 44, 235, 234, 240};
-    boolean toggle = true;
 
+
+    @SuppressLint("CommitPrefEdits")
     public void switchColor(){
         toggle = !toggle;
+        try {
+            SharedPreferences.Editor hexSliderSharedPreferences = context.getSharedPreferences(
+                    "hexSliderSharedPreferences", Context.MODE_PRIVATE).edit();
+
+            hexSliderSharedPreferences.putBoolean("colorToggle", toggle);
+            hexSliderSharedPreferences.apply();
+        } catch (Exception ex){
+        }
+
         int shift = toggle? 0 : 3;
 
         int r = clr1[shift++], g = clr1[shift++], b = clr1[shift];
