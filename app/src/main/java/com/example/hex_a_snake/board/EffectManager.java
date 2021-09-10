@@ -1,6 +1,6 @@
-package com.example.hex_a_gone.board;
+package com.example.hex_a_snake.board;
 
-import com.example.hex_a_gone.draw.HexBatch;
+import com.example.hex_a_snake.draw.HexBatch;
 
 import java.util.Vector;
 

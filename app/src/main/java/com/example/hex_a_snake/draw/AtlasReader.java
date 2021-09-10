@@ -1,8 +1,8 @@
-package com.example.hex_a_gone.draw;
+package com.example.hex_a_snake.draw;
 
 import android.content.Context;
 
-import com.example.hex_a_gone.FileHelper;
+import com.example.hex_a_snake.FileHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;

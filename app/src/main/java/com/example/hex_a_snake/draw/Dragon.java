@@ -1,6 +1,6 @@
-package com.example.hex_a_gone.draw;
+package com.example.hex_a_snake.draw;
 
-import com.example.hex_a_gone.model.PointXY;
+import com.example.hex_a_snake.model.PointXY;
 
 /**
  * Draws a fractal using recursion

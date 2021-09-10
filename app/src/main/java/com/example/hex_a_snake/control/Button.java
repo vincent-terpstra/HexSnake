@@ -1,6 +1,6 @@
-package com.example.hex_a_gone.control;
+package com.example.hex_a_snake.control;
 
-import com.example.hex_a_gone.model.PointXY;
+import com.example.hex_a_snake.model.PointXY;
 
 public abstract class Button extends PointXY {
 

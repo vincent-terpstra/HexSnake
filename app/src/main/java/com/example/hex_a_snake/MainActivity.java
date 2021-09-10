@@ -1,4 +1,4 @@
-package com.example.hex_a_gone;
+package com.example.hex_a_snake;
 
 
 import android.app.Activity;
@@ -11,8 +11,8 @@ import android.view.View;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.hex_a_gone.board.HexGameControl;
-import com.example.hex_a_gone.draw.HexGame;
+import com.example.hex_a_snake.board.HexGameControl;
+import com.example.hex_a_snake.draw.HexGameSnake;
 
 public class MainActivity extends Activity {
     private HexGameControl hexGame;
@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         //final ActivityManager activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
        // final ConfigurationInfo config = activityManager.getDeviceConfigurationInfo();
 
-        final HexGame renderer = new HexGame(this);
+        final HexGameSnake renderer = new HexGameSnake(this);
         Display display = getWindowManager().getDefaultDisplay();
         final Point size = new Point();
         display.getSize(size);
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
                     // adjustments to your UI, such as showing the action bar or
                     // other navigational controls
                     try {
-                       HexGame.resetControl();
+                       HexGameSnake.resetControl();
                         new Handler().postDelayed(hideNavigation, 3000);
                     } catch (Exception ex){}
                 } else {

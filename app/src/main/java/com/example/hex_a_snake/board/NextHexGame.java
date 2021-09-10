@@ -1,4 +1,4 @@
-package com.example.hex_a_gone.board;
+package com.example.hex_a_snake.board;
 
 public class NextHexGame  {
 //	/**extends ApplicationAdapter {

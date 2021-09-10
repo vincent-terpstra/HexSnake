@@ -1,4 +1,4 @@
-package com.example.hex_a_gone.control;
+package com.example.hex_a_snake.control;
 
 public class HexControl { //implements InputProcessor {
     /*

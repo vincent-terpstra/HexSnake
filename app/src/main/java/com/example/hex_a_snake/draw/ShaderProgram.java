@@ -1,9 +1,9 @@
-package com.example.hex_a_gone.draw;
+package com.example.hex_a_snake.draw;
 
 import android.content.Context;
 import android.opengl.GLES20;
 
-import com.example.hex_a_gone.FileHelper;
+import com.example.hex_a_snake.FileHelper;
 
 public class ShaderProgram {
     final int programID;

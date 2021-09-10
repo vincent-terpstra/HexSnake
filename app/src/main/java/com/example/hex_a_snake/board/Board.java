@@ -1,6 +1,6 @@
-package com.example.hex_a_gone.board;
+package com.example.hex_a_snake.board;
 
-import com.example.hex_a_gone.model.HexXYZ;
+import com.example.hex_a_snake.model.HexXYZ;
 
 public class Board {
     private final int[] array = new int[19];

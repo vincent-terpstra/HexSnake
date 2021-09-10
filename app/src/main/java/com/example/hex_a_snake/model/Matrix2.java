@@ -1,4 +1,4 @@
-package com.example.hex_a_gone.model;
+package com.example.hex_a_snake.model;
 
 import android.opengl.GLES20;
 

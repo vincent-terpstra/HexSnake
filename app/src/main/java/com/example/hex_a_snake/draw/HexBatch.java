@@ -1,11 +1,11 @@
-package com.example.hex_a_gone.draw;
+package com.example.hex_a_snake.draw;
 
 import android.content.Context;
 
-import com.example.hex_a_gone.R;
-import com.example.hex_a_gone.control.Button;
-import com.example.hex_a_gone.model.HexXYZ;
-import com.example.hex_a_gone.model.PointXY;
+import com.example.hex_a_snake.R;
+import com.example.hex_a_snake.control.Button;
+import com.example.hex_a_snake.model.HexXYZ;
+import com.example.hex_a_snake.model.PointXY;
 
 public class HexBatch extends QuadBatch {
     private final ColorSource colors ;
@@ -81,7 +81,6 @@ public class HexBatch extends QuadBatch {
         x = hexScreenX(x);
 
         if(number == 0){
-
             return;
         }
 
@@ -93,6 +92,16 @@ public class HexBatch extends QuadBatch {
         }
 
         drawNumber(number, x, y, width);
+    }
+
+    public void drawShape(HexXYZ hex, int color, float width){
+        drawShape(hex.getX(), hex.getY(), color, width);
+    }
+
+    public void drawShape(float x, float y, int color, float width) {
+        y = hexScreenY(x, y);
+        x = hexScreenX(x);
+        drawShadow(hexRegion, x, y, width, width, color);
     }
 
     private void drawHex(float x, float y, float width, int clr){

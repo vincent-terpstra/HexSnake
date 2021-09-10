@@ -1,4 +1,4 @@
-package com.example.hex_a_gone.model;
+package com.example.hex_a_snake.model;
 
 public class PointXY implements Cloneable {
     protected float x, y;

@@ -1,4 +1,4 @@
-package com.example.hex_a_gone.board;
+package com.example.hex_a_snake.board;
 
 import android.graphics.Point;
 import android.opengl.GLSurfaceView;
@@ -8,16 +8,16 @@ import android.view.MotionEvent;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.hex_a_gone.MainActivity;
-import com.example.hex_a_gone.draw.ColorSource;
-import com.example.hex_a_gone.draw.HexGame;
+import com.example.hex_a_snake.MainActivity;
+import com.example.hex_a_snake.draw.ColorSource;
+import com.example.hex_a_snake.draw.HexGameSnake;
 
 public class HexGameControl extends GLSurfaceView {
-    private final HexGame renderer;
+    private final HexGameSnake renderer;
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public HexGameControl(MainActivity mainActivity, HexGame renderer, Point size){
+    public HexGameControl(MainActivity mainActivity, HexGameSnake renderer, Point size){
         super(mainActivity);
 
         this.renderer = renderer;

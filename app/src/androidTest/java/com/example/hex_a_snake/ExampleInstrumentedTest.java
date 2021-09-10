@@ -1,4 +1,4 @@
-package com.example.hex_a_gone;
+package com.example.hex_a_snake;
 
 import android.content.Context;
 

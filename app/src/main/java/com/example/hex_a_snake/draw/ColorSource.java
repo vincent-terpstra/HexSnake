@@ -1,4 +1,4 @@
-package com.example.hex_a_gone.draw;
+package com.example.hex_a_snake.draw;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
